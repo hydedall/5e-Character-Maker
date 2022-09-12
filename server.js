@@ -27,6 +27,9 @@ app.use(methodOverride("_method"));
 
 //I
 //N
+app.get("/character/new", function(req, res) {
+    res.render("new.ejs")
+})
 //D
 //U
 //C
