@@ -26,6 +26,7 @@ app.use(methodOverride("_method"));
 //SEED
 
 //I
+app.get
 //N
 app.get("/character/new", function(req, res) {
     res.render("new.ejs")
