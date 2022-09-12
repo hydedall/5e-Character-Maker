@@ -21,22 +21,19 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // MIDDLEWARE  & BODY PARSER
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.set('view engine', 'ejs')
 
 //ROUTES
 //SEED
 
 //I
-app.get('/characters', (res, req) => {
-    CharacterData.find({}, (error) => {
-        res.redner('index.ejs', {
-            characters: allCharacters,
-        });
-    });
-});
-//N
-app.get("/character/new", function(req, res) {
-    res.render("new.ejs")
+app.get('/', (req, res) => {
+    res.render('index')
 })
+//N
+// app.get("/character/new", function(req, res) {
+//     res.render("new.ejs")
+// })
 //D
 //U
 //C
@@ -46,5 +43,5 @@ app.get("/character/new", function(req, res) {
 // LISTENER
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
-    console.log(`The serer is listening on port: ${PORT}`)
+    console.log(`The server is listening on port: ${PORT}`)
 })
