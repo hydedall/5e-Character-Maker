@@ -26,7 +26,13 @@ app.use(methodOverride("_method"));
 //SEED
 
 //I
-app.get
+app.get('/characters', (res, req) => {
+    CharacterData.find({}, (error) => {
+        res.redner('index.ejs', {
+            characters: allCharacters,
+        });
+    });
+});
 //N
 app.get("/character/new", function(req, res) {
     res.render("new.ejs")
