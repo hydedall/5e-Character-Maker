@@ -10,6 +10,23 @@
 </head>
 <body>
     <div class="container">
+        <h1 class="mb-4">Journal Entries</h1>
+        <a href="/articles/new" class="btn btn-success">New Entry</a>
+
+        <% articles.forEach(article => { %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><%= article.title %></h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        <%= article.createdAt.toLocaleDateString() %>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html> 
+   <!-- <div class="container">
         <div id="text">
             <h1>RPG Character Maker</h1>
         </div>
@@ -31,6 +48,4 @@
                 <button class="btn">Option 4</button>
             </div> 
         </div>
-    </div>
-</body>
-</html>
+    </div> -->

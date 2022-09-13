@@ -1,6 +1,6 @@
 // DEPENDENCIES
 const express = require("express");
-const journalRouter = require('./routes/articles')
+const articleRouter = require('./routes/articles')
 const app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -22,12 +22,23 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // MIDDLEWARE  & BODY PARSER
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.use('/journalEntries', journalRouter)
+app.use('/articles', articleRouter)
 app.set('view engine', 'ejs')
 
 //I
 app.get('/', (req, res) => {
-    res.render('index')
+    const articles = [{
+        title: 'Test articles',
+        createdAt: new Date(),
+        description: 'Test body'
+    },
+    {
+        title: 'Test articles 2',
+        createdAt: new Date(),
+        description: 'Test body 2'
+    
+}]
+    res.render('index', { articles: articles })
 })
 
 // LISTENER
