@@ -17,3 +17,5 @@ const articleSchema = new mongoose.Schema({
         default: () => Date.now
     }
 })
+
+module.exports = mongoose.model('Article', articleSchema)

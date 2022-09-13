@@ -20,7 +20,7 @@ db.on('connected', () => console.log('mongo connected'));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 // MIDDLEWARE  & BODY PARSER
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use('/articles', articleRouter)
 app.set('view engine', 'ejs')
