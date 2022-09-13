@@ -3,7 +3,7 @@ const Article = require('./../models/article')
 const router = express.Router()
 
 router.get('/new', (req, res) => {
-    res.render('articles/new')
+    res.render('articles/new', {article: new Article()})
 })
 
 router.get('/:id', (req, res) => {
@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     try {
       article = await article.save()
       res.redirect(`/articles/${article.id}`)
-    } catch (e) {
+    } catch (error) {
         res.render('articles/new', {article: article})
     }
 })
