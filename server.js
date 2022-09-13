@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
         description: 'Test body 2'
     
 }]
-    res.render('index', { articles: articles })
+    res.render('articles/index', { articles: articles })
 })
 
 // LISTENER
