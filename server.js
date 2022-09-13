@@ -1,5 +1,6 @@
 // DEPENDENCIES
 const express = require("express");
+const journalRouter = require('./routes/articles')
 const app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -21,27 +22,17 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // MIDDLEWARE  & BODY PARSER
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use('/journalEntries', journalRouter)
 app.set('view engine', 'ejs')
-
-//ROUTES
-//SEED
 
 //I
 app.get('/', (req, res) => {
     res.render('index')
 })
-//N
-// app.get("/character/new", function(req, res) {
-//     res.render("new.ejs")
-// })
-//D
-//U
-//C
-//E
-//S
 
 // LISTENER
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`The server is listening on port: ${PORT}`)
 })
+
